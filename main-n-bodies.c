@@ -61,9 +61,7 @@ int main (int ac, char **av){
 
 void printLog(tpParticle *particles, int nParticles, int timestep){
     char fileName[128];
-    // TODO return this
-    /* sprintf(fileName, "%s-%d-log.txt", __FILE__,  timestep); */
-    sprintf(fileName, "n-bodies.txt");
+    sprintf(fileName, "%s-%d-log.txt", __FILE__,  timestep);
     fprintf(stdout, "Saving file [%s] ", fileName); fflush(stdout);
     FILE *ptr = fopen(fileName, "w+");
       for(int i = 0; i < nParticles; i++){
@@ -120,18 +118,19 @@ void particleParticle (tpParticle *particles, int nParticles, int timesteps, flo
                     particles[i].f.z += dz * d;
 
                 }
+            }//end-for(int i = 0; i < nParticles; i++){
 
-                particles[i].v.x += dt * particles[i].f.x;
-                particles[i].v.y += dt * particles[i].f.y;
-                particles[i].v.z += dt * particles[i].f.z;
+            for(int i = 0; i < nParticles; i++){
+              particles[i].v.x += dt * particles[i].f.x;
+              particles[i].v.y += dt * particles[i].f.y;
+              particles[i].v.z += dt * particles[i].f.z;
 
-                particles[i].p.x += dt * particles[i].v.x;
-                particles[i].p.y += dt * particles[i].v.y;
-                particles[i].p.z += dt * particles[i].v.z;
-
+              particles[i].p.x += dt * particles[i].v.x;
+              particles[i].p.y += dt * particles[i].v.y;
+              particles[i].p.z += dt * particles[i].v.z;
 
             }//end-for(int i = 0; i < nParticles; i++){
 
-    }
+    }//end-for (int t = 0; t < timesteps; t++){
 
 }

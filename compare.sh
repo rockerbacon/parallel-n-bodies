@@ -1,14 +1,15 @@
 #!/bin/bash
 
 #Execute aqui pelo script.
+#Execute aqui pelo script.
 #Parâmetros
-# ./gol 128 128 1000 1 0.1
-#        |   |    |  | |-> probabilidade da célula ser 1
-#        |   |    |  |---> 1 grava em arquivo/0 não grava saída no arquivo
-#        |   |    |------> passos de tempo
-#        |   |-----------> largura
-#        |---------------> altura
-args="100 1000 1"
+#   ./n-bodies 100 1000 0
+#              |    |   |-> salva a posição, velocidade e força de cada corpo no último instante de tempo
+#              |    |-----> quantidade de corpos (1000)
+#              |----------> passos de simulação
+
+timesteps="100"
+args="$timesteps 1000 1"
 
 make
 
@@ -17,7 +18,7 @@ time ./n-bodies-parallel $args $1
 
 echo
 
-cmp n-bodies.txt n-bodies-parallel.txt
+cmp main-n-bodies.c-"$timesteps"-log.txt main-n-bodies-parallel.c-"$timesteps"-log.txt
 exit_status=$?
 
 if [ "$exit_status" == "0" ]; then
