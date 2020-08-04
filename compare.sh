@@ -8,8 +8,7 @@
 #              |    |-----> quantidade de corpos (1000)
 #              |----------> passos de simulação
 
-timesteps="100"
-args="$timesteps 1000 1"
+args="100 1000 1"
 
 make
 
@@ -18,7 +17,7 @@ time ./n-bodies-parallel $args $1
 
 echo
 
-cmp main-n-bodies.c-"$timesteps"-log.txt main-n-bodies-parallel.c-"$timesteps"-log.txt
+cmp n-bodies.txt n-bodies-parallel.txt
 exit_status=$?
 
 if [ "$exit_status" == "0" ]; then

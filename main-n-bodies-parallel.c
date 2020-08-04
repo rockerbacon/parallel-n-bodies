@@ -61,7 +61,9 @@ int main (int ac, char **av){
 
 void printLog(tpParticle *particles, int nParticles, int timestep){
     char fileName[128];
-    sprintf(fileName, "%s-%d-log.txt", __FILE__,  timestep);
+    // TODO return this
+    /* sprintf(fileName, "%s-%d-log.txt", __FILE__,  timestep); */
+    sprintf(fileName, "n-bodies-parallel.txt");
     fprintf(stdout, "Saving file [%s] ", fileName); fflush(stdout);
     FILE *ptr = fopen(fileName, "w+");
       for(int i = 0; i < nParticles; i++){
