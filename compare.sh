@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #Execute aqui pelo script.
+#Execute aqui pelo script.
 #Parâmetros
-# ./gol 128 128 1000 1 0.1
-#        |   |    |  | |-> probabilidade da célula ser 1
-#        |   |    |  |---> 1 grava em arquivo/0 não grava saída no arquivo
-#        |   |    |------> passos de tempo
-#        |   |-----------> largura
-#        |---------------> altura
+#   ./n-bodies 100 1000 0
+#              |    |   |-> salva a posição, velocidade e força de cada corpo no último instante de tempo
+#              |    |-----> quantidade de corpos (1000)
+#              |----------> passos de simulação
+
 args="100 1000 1"
 
 make
